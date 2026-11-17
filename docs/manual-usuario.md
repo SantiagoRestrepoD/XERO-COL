@@ -13,6 +13,8 @@ Usa únicamente información y credenciales ficticias; no introduzcas contraseñ
 
 [CAPTURA: 1 - formulario de inicio de sesión con las cuentas de demostración]
 
+![Inicio de sesión y cuentas públicas de demostración.](capturas/captura-01-01.png)
+
 ## Cliente
 
 El cliente puede consultar el catálogo, las fichas, el precio aproximado en USD cuando está disponible, sus datos y las ventas vinculadas a su perfil. No puede editar su perfil ni consultar el inventario administrativo.
@@ -34,6 +36,8 @@ El registro crea un perfil nuevo y una cuenta de cliente vinculada a él. Las cu
 
 [CAPTURA: 2 - catálogo con filtros y precio aproximado en USD]
 
+![Catálogo con filtros, tasa consultada y precios aproximados en USD.](capturas/captura-02-01.png)
+
 ### Consultar datos y compras
 
 1. Inicia sesión como cliente y abre **Mi espacio**.
@@ -42,6 +46,10 @@ El registro crea un perfil nuevo y una cuenta de cliente vinculada a él. Las cu
 4. Si aparece el aviso de cuenta sin vincular, pide al administrador que seleccione el perfil correspondiente.
 
 [CAPTURA: 3 - datos personales y compras del cliente]
+
+![Datos personales del perfil de cliente de demostración.](capturas/captura-03-01.png)
+
+![Compras asociadas al cliente de demostración.](capturas/captura-03-02.png)
 
 ## Empleado
 
@@ -55,6 +63,10 @@ El empleado puede consultar productos y existencias, ver nombre, correo y estado
 
 [CAPTURA: 4 - consulta de inventario y clientes del empleado]
 
+![Inventario del empleado en modo consulta.](capturas/captura-04-01.png)
+
+![Clientes visibles para el empleado en modo lectura.](capturas/captura-04-02.png)
+
 ### Crear y continuar una venta
 
 1. En **Registrar una venta**, selecciona un cliente activo y pulsa **Crear venta**. Debe existir previamente un perfil de cliente activo.
@@ -63,6 +75,12 @@ El empleado puede consultar productos y existencias, ver nombre, correo y estado
 4. Para continuar después un borrador propio, pulsa **Continuar** en la fila correspondiente de **Mis ventas**. Las ventas confirmadas son de solo lectura.
 
 [CAPTURA: 5 - creación de venta y tabla Mis ventas del empleado]
+
+![Cliente elegido y sus compras anteriores.](capturas/captura-05-01.png)
+
+![Borrador del empleado con un producto agregado.](capturas/captura-05-02.png)
+
+![Tabla Mis ventas con el borrador propio.](capturas/captura-05-03.png)
 
 ## Administrador
 
@@ -76,6 +94,10 @@ El administrador puede consultar todos los módulos, crear y modificar productos
 
 [CAPTURA: 6 - formulario y tabla de productos de administración]
 
+![Tabla de productos, búsqueda, filtros y paginación.](capturas/captura-06-01.png)
+
+![Formulario de un producto nuevo.](capturas/captura-06-02.png)
+
 ### Ajustar inventario
 
 1. Abre **Inventario** y pulsa **Nuevo ajuste**.
@@ -83,6 +105,10 @@ El administrador puede consultar todos los módulos, crear y modificar productos
 3. Pulsa **Registrar ajuste**. Consulta la tabla **Historial** para revisar los movimientos.
 
 [CAPTURA: 7 - ajuste de inventario e historial]
+
+![Formulario de ajuste con datos de demostración.](capturas/captura-07-01.png)
+
+![Historial de movimientos después del ajuste de ejemplo.](capturas/captura-07-02.png)
 
 ### Registrar compras y ventas
 
@@ -94,6 +120,12 @@ El administrador puede consultar todos los módulos, crear y modificar productos
 
 [CAPTURA: 8 - editor de compra o venta con líneas de detalle]
 
+![Cabecera del borrador de venta para un cliente de ejemplo.](capturas/captura-08-01.png)
+
+![Línea de venta antes de guardarla.](capturas/captura-08-02.png)
+
+![Detalle guardado en el borrador de venta.](capturas/captura-08-03.png)
+
 ### Gestionar clientes y vincular cuentas
 
 1. En **Clientes**, pulsa **Nuevo perfil**, introduce el nombre y teléfono obligatorios y los demás datos ficticios que correspondan; luego pulsa **Guardar perfil**.
@@ -102,6 +134,10 @@ El administrador puede consultar todos los módulos, crear y modificar productos
 
 [CAPTURA: 9 - perfil de cliente y selector para vincular cuenta]
 
+![Tabla de perfiles de clientes con datos ficticios.](capturas/captura-09-01.png)
+
+![Selector de cuenta y perfil de cliente vinculado.](capturas/captura-09-02.png)
+
 ### Gestionar empleados
 
 1. Abre **Empleados**, pulsa **Nuevo perfil**, completa los datos y guarda.
@@ -109,11 +145,17 @@ El administrador puede consultar todos los módulos, crear y modificar productos
 
 [CAPTURA: 10 - tabla de empleados y gestión de acceso]
 
+![Tabla del perfil de empleado de demostración.](capturas/captura-10-01.png)
+
+![Formulario para crear el acceso del empleado, sin guardar una cuenta.](capturas/captura-10-02.png)
+
 ### Restablecer la demostración
 
 En una página administrativa, pulsa **Restablecer datos** y lee el mensaje antes de confirmar. El restablecimiento reemplaza los datos locales de la demostración y elimina los cambios guardados; el almacenamiento de imágenes también se intenta limpiar.
 
 [CAPTURA: 11 - confirmación para restablecer los datos de demostración]
+
+![Aviso de confirmación de restablecimiento, sin confirmar la acción.](capturas/captura-11-01.png)
 
 ## Errores y avisos comunes
 
