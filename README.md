@@ -6,7 +6,7 @@ Proyecto académico de la materia Herramientas de Programación III (ET0056), In
 
 - Integrante: Santiago Restrepo Durango.
 - Número de equipo: 7.
-- Sitio publicado en GitHub Pages: [pendiente: https://santiagorestrepod.github.io/XERO-COL/ se completa al activar GitHub Pages].
+- Sitio publicado en GitHub Pages: https://santiagorestrepod.github.io/XERO-COL/.
 
 La aplicación usa HTML5, CSS3 y JavaScript sin frameworks ni backend. Guarda los datos de demostración en `localStorage` del navegador y las imágenes subidas en IndexedDB. Las sesiones y los controles de rol son académicos y manipulables desde el cliente; no ofrecen seguridad de servidor.
 

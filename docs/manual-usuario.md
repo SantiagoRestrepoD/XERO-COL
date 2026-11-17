@@ -86,11 +86,11 @@ El administrador puede consultar todos los módulos, crear y modificar productos
 
 ### Registrar compras y ventas
 
-1. En **Compras** o **Ventas**, pulsa **Nuevo borrador**.
+1. En **Compras**, pulsa **Nuevo borrador**. En **Ventas**, pulsa **Registrar venta**.
 2. Completa la cabecera. En una venta selecciona el **Perfil de cliente**. Pulsa **Guardar borrador**.
 3. En la línea de detalle selecciona un producto, indica cantidad y precio y pulsa **Guardar detalle**; agrega las líneas necesarias.
 4. Pulsa **Confirmar aplicación** y acepta la confirmación. Para anular un documento, escribe el motivo, pulsa **Anular aplicación** y confirma; las validaciones del inventario pueden impedir la reversión.
-5. Utiliza la búsqueda y el filtro de estado para consultar los documentos.
+5. En **Ventas**, pulsa **Ver ventas pasadas** para buscar por cliente, producto, fecha o referencia y filtrar por estado. En **Compras**, utiliza la búsqueda y el filtro de estado para consultar los documentos.
 
 [CAPTURA: 8 - editor de compra o venta con líneas de detalle]
 

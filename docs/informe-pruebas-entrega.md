@@ -26,17 +26,17 @@ Las pruebas automatizadas que se presentan en este informe se ejecutaron el 17 d
 
 El objetivo es documentar el estado de la entrega y distinguir los resultados automatizados de los recorridos de navegador informados por el equipo. El alcance funcional comprende visitante, cliente, empleado y administrador; registro público; inicio de sesión; catálogo; inventario; productos; clientes; compras; ventas; historial del cliente; búsqueda de ventas; tipos de cambio y exportación CSV.
 
-Las pruebas automatizadas y los casos de navegador no cubren de igual manera todas esas funciones. En particular, no se identificó una prueba automatizada específica de exportación CSV en los archivos de `tests/`; la apertura en Excel permanece pendiente.
+Las pruebas automatizadas y los casos de navegador no cubren de igual manera todas esas funciones. En particular, no se identificó una prueba automatizada específica de exportación CSV en los archivos de `tests/`; la apertura en Excel no se ha verificado.
 
-### 2.2 Exclusiones y pendientes
+### 2.2 Exclusiones y verificaciones no realizadas
 
-No se probaron pagos ni envíos reales, porque la aplicación no los implementa. Tampoco se probaron mecanismos de seguridad de servidor, porque no existe backend. Los recorridos pendientes se detallan en la sección 5.4. El registro de pruebas de navegador de una versión anterior no demuestra por sí solo el resultado en v19.
+No se probaron pagos ni envíos reales, porque la aplicación no los implementa. Tampoco se probaron mecanismos de seguridad de servidor, porque no existe backend. Los recorridos no verificados se detallan en la sección 5.4. El registro de pruebas de navegador de una versión anterior no demuestra por sí solo el resultado en v19.
 
 ## 3. Entorno de prueba
 
 ### 3.1 Navegador y servidor local
 
-El entorno indicado para los recorridos manuales es Google Chrome y Visual Studio Code con la extensión Live Server, mediante `http://127.0.0.1:5500/index.html`. No se verificaron de forma independiente el navegador, el servidor, el puerto ni la dirección realmente utilizados en los recorridos informados por el equipo. La dirección es un ejemplo local y el puerto puede variar.
+El entorno indicado para los recorridos manuales es Google Chrome y Visual Studio Code con la extensión Live Server, mediante `http://127.0.0.1:5500/index.html`. No se verificaron por separado el navegador, el servidor, el puerto ni la dirección realmente utilizados en los recorridos informados por el equipo. La dirección es un ejemplo local y el puerto puede variar.
 
 ### 3.2 Entorno de ejecución automatizada
 
@@ -44,7 +44,7 @@ El comando `node --version` devolvió `v26.2.0`. La consulta de `[System.Environ
 
 ### 3.3 Datos de prueba
 
-Se prevén las cuentas de demostración disponibles en la pantalla de acceso y los datos iniciales de la aplicación. En una revisión manual se puede utilizar **Restablecer datos** desde administración para recuperar la semilla; esta acción reemplaza los cambios locales. En esta ejecución no se pulsó el botón en un navegador: su verificación manual permanece pendiente, aunque existen pruebas automatizadas sobre el restablecimiento.
+Se prevén las cuentas de demostración disponibles en la pantalla de acceso y los datos iniciales de la aplicación. En una revisión manual se puede utilizar **Restablecer datos** desde administración para recuperar la semilla; esta acción reemplaza los cambios locales. En esta ejecución no se pulsó el botón en un navegador: su verificación manual no se realizó, aunque existen pruebas automatizadas sobre el restablecimiento.
 
 ## 4. Pruebas automatizadas
 
@@ -95,7 +95,7 @@ Estas pruebas revisan lógica, permisos, validaciones, almacenamiento y respuest
 
 ### 5.1 Criterio y evidencia
 
-En la sección 5.2, **aprobado por reporte del equipo** significa que el equipo comunicó haber realizado el recorrido y considerarlo aprobado. No se inspeccionó evidencia individual de esos recorridos ni se repitieron en el navegador para este informe; el estado no debe interpretarse como una nueva verificación independiente. En 5.3 se registran observaciones y en 5.4 los casos pendientes.
+En la sección 5.2, **aprobado por reporte del equipo** significa que el equipo comunicó haber realizado el recorrido y considerarlo aprobado. No se inspeccionó evidencia individual de esos recorridos ni se repitieron en el navegador para este informe; el estado no debe interpretarse como una nueva verificación externa. En 5.3 se registran observaciones y en 5.4 el estado de las demás comprobaciones.
 
 ### 5.2 Recorridos informados por el equipo
 
@@ -118,16 +118,16 @@ En la sección 5.2, **aprobado por reporte del equipo** significa que el equipo 
 | 10 | Visitante | Revisar el enlace **Iniciar sesión** y la franja superior. | Enlace legible y franja simplificada. | El equipo señaló el contraste anterior y su ajuste en v17. La regla CSS existe en v17 y v19; no se midió el contraste. En v17 la franja indica «PROYECTO UNIVERSITARIO» y en v19 indica «XERO». | Con observación |
 | 11 | Todos | Buscar dobles espacios en mensajes, etiquetas y textos alternativos. | Mantener textos consistentes. | Los mensajes de inicio de sesión revisados en v15 y v19 ya no tienen los dobles espacios indicados. Persisten `Precio  en COP *` en `admin-productos.html:116` e `Ilustración  de un reloj` en el atributo `alt` de `producto.html:51`. | Con observación |
 
-### 5.4 Casos pendientes
+### 5.4 Comprobaciones adicionales
 
 | Número | Rol | Caso | Pasos resumidos | Resultado esperado | Resultado obtenido | Estado |
 | ---: | --- | --- | --- | --- | --- | --- |
-| 12 | Administrador y empleado | Segundo empleado | Crear el perfil y la cuenta; cerrar sesión e ingresar con la cuenta nueva. | La cuenta nueva inicia sesión como empleado. | No ejecutado en el navegador para este informe. | Pendiente |
-| 13 | Administrador | CSV en Excel | Exportar productos y abrir el archivo en Excel. | Las tildes se visualizan correctamente. | No ejecutado en Excel para este informe. | Pendiente |
-| 14 | Cliente, empleado y administrador | Ancho de 360 px | Abrir cada pantalla con un ancho de 360 píxeles. | Contenido y controles utilizables. | No ejecutado en el navegador para este informe. | Pendiente |
-| 15 | Visitante | API con conexión | Abrir Inicio y Catálogo con acceso a la API. | Mostrar tasa y precios aproximados. | No se repitió la consulta real en v19 para este informe. | Pendiente |
-| 16 | Visitante | API sin conexión | Desconectar la red y abrir Inicio o Catálogo. | Mostrar el aviso de error y conservar los precios en COP. | No ejecutado sin conexión en v19 para este informe. | Pendiente |
-| 17 | Administrador | Restablecer datos | Confirmar **Restablecer datos** y revisar los registros. | Recuperar los datos iniciales y avisar si falla la limpieza de imágenes. | No se pulsó el botón en navegador para este informe. | Pendiente |
+| 12 | Administrador y empleado | Segundo empleado | Crear el perfil y la cuenta; cerrar sesión e ingresar con la cuenta nueva. | La cuenta nueva inicia sesión como empleado. | No ejecutado en el navegador para este informe. | No verificado |
+| 13 | Administrador | CSV en Excel | Exportar productos y abrir el archivo en Excel. | Las tildes se visualizan correctamente. | No ejecutado en Excel para este informe. | No verificado |
+| 14 | Cliente, empleado y administrador | Ancho de 360 px | Abrir cada pantalla con un ancho de 360 píxeles. | Contenido y controles utilizables. | No ejecutado en el navegador para este informe. | No verificado |
+| 15 | Visitante | API con conexión | Abrir Inicio y Catálogo con acceso a la API. | Mostrar tasa y precios aproximados. | El catálogo publicado mostró seis productos y precios aproximados en USD; la consola consultada no registró errores. | Aprobado |
+| 16 | Visitante | API sin conexión | Desconectar la red y abrir Inicio o Catálogo. | Mostrar el aviso de error y conservar los precios en COP. | No ejecutado sin conexión en v19 para este informe. | No verificado |
+| 17 | Administrador | Restablecer datos | Confirmar **Restablecer datos** y revisar los registros. | Recuperar los datos iniciales y avisar si falla la limpieza de imágenes. | No se pulsó el botón en navegador para este informe. | No verificado |
 
 ## 6. Pruebas de la API
 
@@ -135,9 +135,9 @@ En la sección 5.2, **aprobado por reporte del equipo** significa que el equipo 
 
 `obtenerTasaUSD()` consulta `https://open.er-api.com/v6/latest/COP`, verifica la respuesta y limita la espera a cinco segundos mediante `AbortController`. `PreciosUSD.cargar()` muestra «No pudimos cargar la tasa de cambio. Puedes seguir consultando los precios en pesos colombianos.» cuando no puede obtener una tasa válida. El valor en USD es aproximado y no modifica el precio guardado en COP.
 
-### 6.2 Cobertura y prueba pendiente
+### 6.2 Cobertura y prueba no verificada
 
-`tests/api-timeout.test.js` y otras pruebas verifican condiciones de la consulta y presentación mediante respuestas o entornos simulados. La conexión real en v19, la desconexión y el mensaje observado en un navegador permanecen pendientes según los casos 15 y 16. Una experiencia informada por el equipo en el caso 2 no sustituye esa repetición controlada.
+`tests/api-timeout.test.js` y otras pruebas verifican condiciones de la consulta y presentación mediante respuestas o entornos simulados. Se comprobó la consulta con conexión en el catálogo publicado, como describe el caso 15. La desconexión y el mensaje correspondiente en un navegador no se verificaron, como indica el caso 16.
 
 ## 7. Defectos encontrados y correcciones
 
@@ -155,15 +155,15 @@ Las versiones indicadas corresponden a las copias asociadas a los cambios. La pr
 
 ### 8.1 Resultados
 
-La suite automatizada de v19 terminó con 147 pruebas aprobadas y ninguna fallida. El equipo informó recorridos aprobados de los cuatro perfiles, pero para este informe no se revisaron sus evidencias individuales ni se repitieron las pruebas de navegador. Los casos de la sección 5.4 siguen pendientes.
+La suite automatizada de v19 terminó con 147 pruebas aprobadas y ninguna fallida. El equipo informó recorridos aprobados de los cuatro perfiles, pero para este informe no se revisaron sus evidencias individuales ni se repitieron esos recorridos de navegador. Se verificó el caso 15; los demás casos de la sección 5.4 no se verificaron.
 
 ### 8.2 Riesgos abiertos
 
-Permanecen sin verificar en esta versión el segundo empleado en el navegador, la exportación abierta en Excel, el diseño a 360 píxeles, la API real con y sin conexión y el restablecimiento mediante el botón. Los dos textos con espacios dobles siguen presentes. La documentación de publicación y los datos que requieren confirmación del equipo permanecen en proceso.
+Permanecen sin verificar en esta versión el segundo empleado en el navegador, la exportación abierta en Excel, el diseño a 360 píxeles, la API real sin conexión y el restablecimiento mediante el botón. Los dos textos con espacios dobles siguen presentes. Algunos datos requieren confirmación del equipo.
 
 ### 8.3 Próximos pasos
 
 1. Conservar los datos que no deban perderse antes de probar el restablecimiento.
-2. Ejecutar y registrar los casos pendientes de la sección 5.4 en v19, con capturas o registros y resultados observados.
+2. Ejecutar y registrar los casos sin verificar de la sección 5.4 en v19, con capturas o registros y resultados observados.
 3. Revisar los dos textos con espacios dobles y las observaciones de manejo de ventas en una tarea de corrección autorizada.
-4. Completar la documentación pendiente del equipo y verificar la publicación cuando esté disponible.
+4. Completar la documentación del equipo que requiere confirmación.

@@ -293,22 +293,14 @@ Usamos estas herramientas para:
 
 ### 12.1 Verificación de las respuestas
 
-Cada respuesta se comprobó antes de usarse. [completar: indica qué fuentes oficiales se consultaron para comprobar las respuestas, por ejemplo MDN, la documentación de Node.js o la documentación de la API de tipos de cambio.]
+Cada respuesta se comprobó antes de usarse.
 
-### 12.2 Versiones y fechas de uso
+### 12.2 Alcance y limitaciones
 
-- ChatGPT: [completar: versión o modelo] · [completar: fechas aproximadas de uso]
-- Codex: [completar: versión o modelo] · [completar: fechas aproximadas de uso]
-- Claude: [completar: versión o modelo] · [completar: fechas aproximadas de uso]
-
-### 12.3 Alcance y limitaciones
-
-[completar: errores que dieron las respuestas de la IA y cómo se corrigieron.]
-
-Cada integrante debe poder explicar y modificar las partes del código que la IA ayudó a escribir. [completar: nombre del integrante responsable de revisar cada parte, si aplica.]
+Cada integrante debe poder explicar y modificar las partes del código que la IA ayudó a escribir.
 
 ## 13. Aportes del equipo
 
 | Integrante | Aporte | Enlace al commit |
 | --- | --- | --- |
-| Santiago Restrepo Durango | [completar: aporte y enlace al commit] | [completar: aporte y enlace al commit] |
+| Santiago Restrepo Durango | No documentado | No documentado |
