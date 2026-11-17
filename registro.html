@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' https://open.er-api.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Registro local de clientes de XERO.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/fuentes.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <title>XERO | Registro de cliente</title>
+</head>
+<body data-pagina="registro">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="aviso-demo">XERO</div>
+<header class="cabecera">
+<a class="marca" href="index.html"><span class="logo" aria-hidden="true">X</span><span class="nombre-marca">XERO <small>Studio</small></span></a>
+<nav class="menu-global" aria-label="Navegación principal">
+<a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="index.html#contacto">Contacto</a><a class="boton" href="login.html">Iniciar sesión</a>
+<span id="perfilDemo"></span><button id="salirDemo" type="button" hidden>Cerrar sesión</button>
+</nav>
+<button id="cambiarTema" class="boton-tema" type="button" aria-pressed="false">Modo oscuro</button>
+</header>
+<div class="estructura">
+<aside class="lateral">
+<p class="etiqueta">EXPLORA XERO</p>
+<button id="alternarMenu" type="button" aria-controls="menuLateral" aria-expanded="false">Menú</button>
+<nav id="menuLateral" aria-label="Secciones públicas"><a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="login.html">Iniciar sesión</a></nav>
+<p class="nota-lateral">Los cambios se guardan en este navegador.</p>
+</aside>
+<main id="contenido" tabindex="-1">
+<div class="titulo-seccion"><div><p class="etiqueta">XERO</p><h1 id="tituloPagina">Registro de cliente</h1><p>Crea una cuenta de cliente para consultar tu perfil y tus compras en este navegador.</p></div></div>
+<p id="mensajePagina" class="mensaje oculto" role="status" aria-live="polite"></p>
+<section class="seccion">
+<p class="aviso-acceso"><strong>Registro local</strong></p>
+<p>Usa datos ficticios y una contraseña que no utilices en otros servicios. Los datos permanecen en este navegador y el registro no ofrece seguridad de servidor.</p>
+<p id="ayudaRegistro">Los campos marcados con * son obligatorios. Las cuentas de empleados y administradores se gestionan por el administrador.</p>
+<form class="formulario" id="formRegistro">
+<fieldset><legend>Datos del cliente</legend>
+<div class="formulario__campos">
+<label for="nombreRegistro">Nombre *<input id="nombreRegistro" name="nombre" type="text" required maxlength="150" autocomplete="name" aria-describedby="ayudaRegistro"></label>
+<label for="telefonoRegistro">Teléfono *<input id="telefonoRegistro" name="telefono" type="tel" required maxlength="10" inputmode="numeric" autocomplete="tel" aria-describedby="ayudaTelefonoRegistro"><span id="ayudaTelefonoRegistro">Solo dígitos, entre 7 y 10.</span></label>
+<label for="correoRegistro">Correo *<input id="correoRegistro" name="correo" type="email" required maxlength="120" autocomplete="email" aria-describedby="ayudaRegistro"></label>
+<label for="direccionRegistro">Dirección (opcional)<input id="direccionRegistro" name="direccion" type="text" maxlength="120" autocomplete="street-address" aria-describedby="ayudaDireccionRegistro"><span id="ayudaDireccionRegistro">Entre 5 y 120 caracteres si la escribes.</span></label>
+<label for="ciudadRegistro">Ciudad (opcional)<input id="ciudadRegistro" name="ciudad" type="text" maxlength="60" autocomplete="address-level2" aria-describedby="ayudaCiudadRegistro"><span id="ayudaCiudadRegistro">Entre 2 y 60 letras y espacios.</span></label>
+<label for="cedulaRegistro">Cédula (opcional)<input id="cedulaRegistro" name="cedula" type="text" maxlength="10" inputmode="numeric" autocomplete="off" aria-describedby="ayudaCedulaRegistro"><span id="ayudaCedulaRegistro">Solo dígitos, entre 6 y 10.</span></label>
+</div></fieldset>
+<fieldset><legend>Datos de acceso</legend>
+<div class="formulario__campos">
+<label for="usuarioRegistro">Usuario *<input id="usuarioRegistro" name="usuario" type="text" required maxlength="60" autocomplete="username" autocapitalize="none" spellcheck="false" aria-describedby="ayudaUsuarioRegistro"><span id="ayudaUsuarioRegistro">De 3 a 60 caracteres: letras, números, punto, guion o guion bajo.</span></label>
+<label for="claveRegistro">Contraseña *<input id="claveRegistro" name="clave" type="password" required minlength="8" maxlength="100" autocomplete="new-password" aria-describedby="ayudaClaveRegistro"><span id="ayudaClaveRegistro">Entre 8 y 100 caracteres; usa una clave de prueba.</span></label>
+<label for="confirmacionRegistro">Confirmar contraseña *<input id="confirmacionRegistro" name="confirmacion" type="password" required maxlength="100" autocomplete="new-password" aria-describedby="ayudaClaveRegistro"></label>
+</div></fieldset>
+<p id="errorRegistro" data-error class="mensaje oculto" role="alert"></p>
+<p id="estadoRegistro" class="mensaje oculto" role="status" aria-live="polite"></p>
+<button id="crearCuentaCliente" class="boton" type="submit">Crear cuenta</button>
+</form>
+<p>¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a>.</p>
+</section>
+</main>
+</div>
+<footer class="pie"><div><a class="marca-pie" href="index.html">XERO Studio</a><address>Dirección: Calle 10 # 20-30, Ciudad Ejemplo, Colombia.</address></div>
+<nav aria-label="Canales de contacto"><a href="https://www.instagram.com/xero.col/" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://wa.me/573156776744" target="_blank" rel="noopener noreferrer">WhatsApp: +57 315 677 6744</a></nav>
+<p>© 2026 · Sin pagos, envíos ni cuentas reales.</p></footer>
+<dialog id="confirmacionDemo" aria-labelledby="tituloConfirmacion"><h2 id="tituloConfirmacion">Confirmar acción</h2><p id="textoConfirmacion"></p><p id="errorConfirmacion" class="mensaje oculto" role="alert"></p><div class="acciones"><button id="aceptarConfirmacion" class="boton" type="button">Confirmar</button><button class="boton secundario" type="button" data-cerrar="confirmacionDemo">Cancelar</button></div></dialog>
+<script src="js/servicios/imagenes.js" defer></script>
+<script src="js/servicios/mostrar-imagen.js" defer></script>
+<script src="js/modelo/modelo.js" defer></script>
+<script src="js/vista/vista.js" defer></script>
+<script src="js/controlador/controlador.js" defer></script>
+<script src="js/app.js" defer></script>
+<script src="js/paginas/registro.js" defer></script>
+</body>
+</html>

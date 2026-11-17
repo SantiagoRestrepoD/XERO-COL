@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' https://open.er-api.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="XERO: catálogo de relojes y gestión de inventario local.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/fuentes.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <title>XERO | Ficha </title>
+</head>
+<body data-pagina="producto">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="aviso-demo">XERO</div>
+<header class="cabecera">
+<a class="marca" href="index.html">
+<span class="logo" aria-hidden="true">X</span>
+<span class="nombre-marca">XERO <small>Studio</small>
+</span>
+</a>
+<nav class="menu-global" aria-label="Navegación principal">
+<a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="index.html#contacto">Contacto</a><a class="boton" href="login.html">Iniciar sesión</a>
+<span id="perfilDemo"></span><button id="salirDemo" type="button" hidden>Cerrar sesión</button>
+</nav>
+<button id="cambiarTema" class="boton-tema" type="button" aria-pressed="false">Modo oscuro</button>
+</header>
+<div class="estructura">
+<aside class="lateral">
+<p class="etiqueta">EXPLORA XERO</p>
+<button id="alternarMenu" type="button" aria-controls="menuLateral" aria-expanded="false">Menú</button>
+<nav id="menuLateral" aria-label="Secciones públicas">
+<a href="index.html">Inicio</a>
+<a href="catalogo.html">Catálogo</a>
+<a href="login.html">Iniciar sesión</a>
+</nav>
+<p class="nota-lateral">Los cambios se guardan en este navegador.</p>
+<button id="restablecerDemo" type="button" class="boton secundario">Restablecer datos</button>
+</aside>
+<main id="contenido" tabindex="-1">
+<div class="titulo-seccion">
+<div>
+<p class="etiqueta">XERO</p>
+<h1 id="tituloPagina">Ficha </h1>
+<p>Información del producto seleccionado. No representa una oferta comercial.</p>
+</div>
+</div>
+<p id="mensajePagina" class="mensaje oculto" role="status" aria-live="polite">
+</p>
+<section id="fichaProducto" class="seccion ficha-demo">
+<img id="imagenProducto" src="img/watch-1.webp" alt="Ilustración  de un reloj" width="800" height="800">
+<div>
+<h2>Información del reloj</h2>
+<p id="precioProducto" class="precio">
+</p>
+<p id="categoriaProducto">
+</p>
+<p id="stockProducto">
+</p>
+</div>
+</section>
+<p class="seccion">
+<a class="boton secundario" href="catalogo.html">Volver al catálogo</a>
+</p>
+</main>
+</div>
+<footer class="pie"><div><a class="marca-pie" href="index.html">XERO Studio</a><address>Dirección: Calle 10 # 20-30, Ciudad Ejemplo, Colombia.</address></div>
+<nav aria-label="Canales de contacto"><a href="https://www.instagram.com/xero.col/" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://wa.me/573156776744" target="_blank" rel="noopener noreferrer">WhatsApp: +57 315 677 6744</a></nav>
+<p>© 2026 · Sin pagos, envíos ni cuentas reales.</p></footer>
+<dialog id="confirmacionDemo" aria-labelledby="tituloConfirmacion">
+<h2 id="tituloConfirmacion">Confirmar acción </h2>
+<p id="textoConfirmacion">
+</p>
+<p id="errorConfirmacion" class="mensaje oculto" role="alert">
+</p>
+<div class="acciones">
+<button id="aceptarConfirmacion" class="boton" type="button">Confirmar</button>
+<button class="boton secundario" type="button" data-cerrar="confirmacionDemo">Cancelar</button>
+</div>
+</dialog>
+<script src="js/servicios/imagenes.js" defer></script>
+<script src="js/servicios/mostrar-imagen.js" defer></script>
+<script src="js/modelo/modelo.js" defer></script>
+<script src="js/vista/vista.js" defer></script>
+<script src="js/controlador/controlador.js" defer></script>
+<script src="js/app.js" defer></script>
+<script src="js/paginas/producto.js" defer>
+</script>
+</body>
+</html>

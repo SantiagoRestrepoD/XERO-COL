@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' https://open.er-api.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="XERO: catálogo de relojes y gestión de inventario local.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/fuentes.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <title>XERO | Productos</title>
+</head>
+<body class="acceso-pendiente" data-pagina="admin-productos" data-perfil="administrador">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="aviso-demo">XERO</div>
+<header class="cabecera">
+<a class="marca" href="index.html">
+<span class="logo" aria-hidden="true">X</span>
+<span class="nombre-marca">XERO <small>Studio</small>
+</span>
+</a>
+<nav class="menu-global" aria-label="Navegación principal">
+<a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="index.html#contacto">Contacto</a><a class="boton" href="login.html">Iniciar sesión</a>
+<span id="perfilDemo"></span><button id="salirDemo" type="button" hidden>Cerrar sesión</button>
+</nav>
+<button id="cambiarTema" class="boton-tema" type="button" aria-pressed="false">Modo oscuro</button>
+</header>
+<div class="estructura administracion">
+<aside class="lateral">
+<p class="etiqueta">ADMINISTRACIÓN</p>
+<button id="alternarMenu" type="button" aria-controls="menuLateral" aria-expanded="false">Menú</button>
+<nav id="menuLateral" aria-label="Módulos administrativos">
+<a href="admin.html">Inicio</a>
+<a href="admin-productos.html" aria-current="page" class="seleccionado">Productos</a>
+<a href="admin-inventario.html">Inventario</a>
+<a href="admin-compras.html">Compras</a>
+<a href="admin-ventas.html">Ventas</a>
+<a href="admin-clientes.html">Clientes</a>
+<a href="admin-empleados.html">Empleados</a>
+</nav>
+<p class="nota-lateral">Los cambios se guardan en este navegador.</p>
+<button id="restablecerDemo" type="button" class="boton secundario">Restablecer datos</button>
+</aside>
+<main id="contenido" tabindex="-1" hidden>
+<div class="titulo-seccion">
+<div>
+<p class="etiqueta">XERO</p>
+<h1 id="tituloPagina">Productos</h1>
+<p>Alta, edición y estado de relojes. Usa Inventario para cambiar existencias.</p>
+</div>
+</div>
+<p id="mensajePagina" class="mensaje oculto" role="status" aria-live="polite">
+</p>
+<section class="seccion">
+<button id="nuevoProducto" type="button" class="boton">Nuevo producto</button>
+<button id="exportarProductos" type="button" class="boton secundario">Exportar CSV</button>
+<p id="mensajeExportacion" role="status" aria-live="polite"></p>
+<div class="formulario formulario__campos">
+<label for="buscarProductos">Buscar producto<input id="buscarProductos" name="buscarProductos" type="search" >
+</label>
+<label for="estadoProductos">Estado<select id="estadoProductos" name="estadoProductos">
+<option value="todos">Todos</option>
+<option value="activos">Activos</option>
+<option value="inactivos">Inactivos</option>
+</select>
+</label>
+<label for="filtroCategoria">Categoría<select id="filtroCategoria" name="filtroCategoria">
+<option value="">Todas</option>
+</select>
+</label>
+</div>
+<p id="contadorProductos" role="status">
+</p>
+<div class="tabla" tabindex="0" role="region" aria-label="Productos ">
+<table class="tabla__contenido">
+<caption>Productos </caption>
+<thead>
+<tr class="tabla__fila">
+<th class="tabla__encabezado" scope="col"><button type="button" class="boton secundario" data-orden="nombre" aria-label="Ordenar por nombre">Nombre</button></th>
+<th class="tabla__encabezado" scope="col"><button type="button" class="boton secundario" data-orden="categoria" aria-label="Ordenar por categoría">Categoría</button></th>
+<th class="tabla__encabezado" scope="col"><button type="button" class="boton secundario" data-orden="precio" aria-label="Ordenar por precio">Precio</button></th>
+<th class="tabla__encabezado" scope="col"><button type="button" class="boton secundario" data-orden="cantidad" aria-label="Ordenar por cantidad">Cantidad</button></th>
+<th class="tabla__encabezado" scope="col"><button type="button" class="boton secundario" data-orden="estado" aria-label="Ordenar por estado">Estado</button></th>
+<th class="tabla__encabezado" scope="col">Acciones</th>
+</tr>
+</thead>
+<tbody id="tablaProductos">
+</tbody>
+</table>
+</div>
+<nav aria-label="Paginación de productos">
+<label for="limiteProductos">Productos por página<select id="limiteProductos" name="limiteProductos">
+<option selected>10</option>
+<option>25</option>
+<option>50</option>
+</select>
+</label>
+<div class="acciones">
+<button id="anteriorProductos" class="boton secundario" type="button">Anterior</button>
+<span id="paginaProductos" role="status"></span>
+<button id="siguienteProductos" class="boton secundario" type="button">Siguiente</button>
+</div>
+</nav>
+</section>
+<dialog id="editorProducto" data-retorno="nuevoProducto" aria-labelledby="titulo-editorProducto">
+<div class="cabecera-dialogo">
+<h2 id="titulo-editorProducto">Producto </h2>
+<button type="button" class="boton secundario" data-cerrar="editorProducto">Cerrar</button>
+</div>
+<form class="formulario" id="formProducto">
+<fieldset>
+<legend id="leyendaProducto">Nuevo producto</legend>
+<div class="formulario formulario__campos">
+<label for="nombreFormulario">Nombre *<input id="nombreFormulario" name="nombre" type="text" required minlength="3" maxlength="60">
+</label>
+<label for="precioFormulario">Precio  en COP *<input id="precioFormulario" name="precio" type="text" required inputmode="decimal" placeholder="150000.00">
+</label>
+<label for="categoriaFormulario">Categoría *<select id="categoriaFormulario" name="categoria">
+<option value="">Selecciona</option>
+</select>
+</label>
+<label for="cantidadFormulario">Cantidad inicial (se ajusta en Inventario) *<input id="cantidadFormulario" name="cantidad" type="number" required min="0" max="500" step="1">
+</label>
+</div>
+<fieldset aria-describedby="ayudaImagen estadoImagen">
+<legend>Origen de la imagen *</legend>
+<label><input type="radio" name="origenImagen" value="ejemplo" aria-describedby="ayudaImagen estadoImagen" checked> Ilustración de ejemplo</label>
+<label><input type="radio" name="origenImagen" value="enlace" aria-describedby="ayudaImagen estadoImagen"> Enlace de imagen</label>
+<label><input type="radio" id="origenArchivo" name="origenImagen" value="archivo" aria-describedby="ayudaImagen estadoImagen" disabled> Subir imagen</label>
+<p id="ayudaImagen">Elige una ilustración, un enlace https o un archivo WebP, PNG o JPEG de hasta 500 KB.</p>
+<div id="grupoImagenEjemplo">
+<label for="imagenFormulario">Ilustración de ejemplo *<select id="imagenFormulario" name="imagen" aria-describedby="ayudaImagen estadoImagen">
+<option value="">Selecciona</option>
+</select></label>
+</div>
+<div id="grupoImagenEnlace" hidden>
+<label for="enlaceImagen">Enlace de la imagen (https) *<input id="enlaceImagen" name="enlaceImagen" type="url" aria-describedby="ayudaImagen estadoImagen" disabled></label>
+</div>
+<div id="grupoImagenArchivo" hidden>
+<label for="archivoImagen">Archivo de imagen *<input id="archivoImagen" name="archivoImagen" type="file" accept="image/webp,image/png,image/jpeg" aria-describedby="ayudaImagen estadoImagen" disabled></label>
+</div>
+<p id="estadoImagen" role="status" aria-live="polite"></p>
+</fieldset>
+<img id="vistaPrevia" class="vista-previa-demo" src="img/watch-1.webp" alt="Vista previa de la imagen seleccionada" width="160" height="160" hidden>
+<p id="errorProducto" data-error class="mensaje oculto" role="alert">
+</p>
+<button class="boton" id="guardarProducto" type="submit">Guardar producto</button>
+</fieldset>
+</form>
+</dialog>
+</main>
+</div>
+<footer class="pie"><div><a class="marca-pie" href="index.html">XERO Studio</a><address>Dirección: Calle 10 # 20-30, Ciudad Ejemplo, Colombia.</address></div>
+<nav aria-label="Canales de contacto"><a href="https://www.instagram.com/xero.col/" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://wa.me/573156776744" target="_blank" rel="noopener noreferrer">WhatsApp: +57 315 677 6744</a></nav>
+<p>© 2026 · Sin pagos, envíos ni cuentas reales.</p></footer>
+<dialog id="confirmacionDemo" aria-labelledby="tituloConfirmacion">
+<h2 id="tituloConfirmacion">Confirmar acción </h2>
+<p id="textoConfirmacion">
+</p>
+<p id="errorConfirmacion" class="mensaje oculto" role="alert">
+</p>
+<div class="acciones">
+<button id="aceptarConfirmacion" class="boton" type="button">Confirmar</button>
+<button class="boton secundario" type="button" data-cerrar="confirmacionDemo">Cancelar</button>
+</div>
+</dialog>
+<script src="js/servicios/imagenes.js" defer></script>
+<script src="js/servicios/mostrar-imagen.js" defer></script>
+<script src="js/modelo/modelo.js" defer></script>
+<script src="js/vista/vista.js" defer></script>
+<script src="js/controlador/controlador.js" defer></script>
+<script src="js/app.js" defer></script>
+<script src="js/paginas/admin-productos.js" defer>
+</script>
+</body>
+</html>

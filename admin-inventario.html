@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' https://open.er-api.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="XERO: catálogo de relojes y gestión de inventario local.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/fuentes.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <title>XERO | Inventario</title>
+</head>
+<body class="acceso-pendiente" data-pagina="admin-inventario" data-perfil="administrador">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="aviso-demo">XERO</div>
+<header class="cabecera">
+<a class="marca" href="index.html">
+<span class="logo" aria-hidden="true">X</span>
+<span class="nombre-marca">XERO <small>Studio</small>
+</span>
+</a>
+<nav class="menu-global" aria-label="Navegación principal">
+<a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="index.html#contacto">Contacto</a><a class="boton" href="login.html">Iniciar sesión</a>
+<span id="perfilDemo"></span><button id="salirDemo" type="button" hidden>Cerrar sesión</button>
+</nav>
+<button id="cambiarTema" class="boton-tema" type="button" aria-pressed="false">Modo oscuro</button>
+</header>
+<div class="estructura administracion">
+<aside class="lateral">
+<p class="etiqueta">ADMINISTRACIÓN</p>
+<button id="alternarMenu" type="button" aria-controls="menuLateral" aria-expanded="false">Menú</button>
+<nav id="menuLateral" aria-label="Módulos administrativos">
+<a href="admin.html">Inicio</a>
+<a href="admin-productos.html">Productos</a>
+<a href="admin-inventario.html" aria-current="page" class="seleccionado">Inventario</a>
+<a href="admin-compras.html">Compras</a>
+<a href="admin-ventas.html">Ventas</a>
+<a href="admin-clientes.html">Clientes</a>
+<a href="admin-empleados.html">Empleados</a>
+</nav>
+<p class="nota-lateral">Los cambios se guardan en este navegador.</p>
+<button id="restablecerDemo" type="button" class="boton secundario">Restablecer datos</button>
+</aside>
+<main id="contenido" tabindex="-1" hidden>
+<div class="titulo-seccion">
+<div>
+<p class="etiqueta">XERO</p>
+<h1 id="tituloPagina">Inventario</h1>
+<p>Consulta existencias y registra ajustes en un único inventario compartido.</p>
+</div>
+</div>
+<p id="mensajePagina" class="mensaje oculto" role="status" aria-live="polite">
+</p>
+<section class="seccion">
+<button id="nuevoAjuste" type="button" class="boton">Nuevo ajuste</button>
+<label for="buscarStock">Buscar existencias<input id="buscarStock" name="buscarStock" type="search" >
+</label>
+<div class="tabla" tabindex="0" role="region" aria-label="Existencias ">
+<table class="tabla__contenido">
+<caption>Existencias </caption>
+<thead>
+<tr class="tabla__fila">
+<th class="tabla__encabezado" scope="col">Nombre</th>
+<th class="tabla__encabezado" scope="col">Categoría</th>
+<th class="tabla__encabezado" scope="col">Cantidad</th>
+<th class="tabla__encabezado" scope="col">Estado</th>
+</tr>
+</thead>
+<tbody id="tablaStock">
+</tbody>
+</table>
+</div>
+</section>
+<section class="seccion">
+<h2>Historial</h2>
+<label for="buscarHistorial">Filtrar por reloj, tipo o motivo<input id="buscarHistorial" name="buscarHistorial" type="search" >
+</label>
+<p id="contadorMovimientos" role="status">
+</p>
+<div class="tabla" tabindex="0" role="region" aria-label="Movimientos ">
+<table class="tabla__contenido">
+<caption>Movimientos </caption>
+<thead>
+<tr class="tabla__fila">
+<th class="tabla__encabezado" scope="col">Fecha</th>
+<th class="tabla__encabezado" scope="col">Producto</th>
+<th class="tabla__encabezado" scope="col">Tipo</th>
+<th class="tabla__encabezado" scope="col">Variación</th>
+<th class="tabla__encabezado" scope="col">Anterior</th>
+<th class="tabla__encabezado" scope="col">Posterior</th>
+<th class="tabla__encabezado" scope="col">Motivo</th>
+</tr>
+</thead>
+<tbody id="tablaHistorial">
+</tbody>
+</table>
+</div>
+</section>
+<dialog id="editorAjuste" data-retorno="nuevoAjuste" aria-labelledby="titulo-editorAjuste">
+<div class="cabecera-dialogo">
+<h2 id="titulo-editorAjuste">Ajuste </h2>
+<button type="button" class="boton secundario" data-cerrar="editorAjuste">Cerrar</button>
+</div>
+<form class="formulario" id="formAjuste">
+<fieldset>
+<legend>Variación de existencias</legend>
+<label for="productoAjuste">Producto *<select id="productoAjuste" name="productoId">
+<option value="">Selecciona</option>
+</select>
+</label>
+<label for="variacionAjuste">Variación positiva o negativa *<input id="variacionAjuste" name="variacion" type="number" required min="-500" max="500" step="1">
+</label>
+<label for="motivoAjuste">Motivo *<input id="motivoAjuste" name="motivo" type="text" required minlength="3" maxlength="500">
+</label>
+<p id="errorAjuste" data-error role="alert" class="mensaje oculto">
+</p>
+<button class="boton" id="guardarAjuste" type="submit">Registrar ajuste</button>
+</fieldset>
+</form>
+</dialog>
+</main>
+</div>
+<footer class="pie"><div><a class="marca-pie" href="index.html">XERO Studio</a><address>Dirección: Calle 10 # 20-30, Ciudad Ejemplo, Colombia.</address></div>
+<nav aria-label="Canales de contacto"><a href="https://www.instagram.com/xero.col/" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://wa.me/573156776744" target="_blank" rel="noopener noreferrer">WhatsApp: +57 315 677 6744</a></nav>
+<p>© 2026 · Sin pagos, envíos ni cuentas reales.</p></footer>
+<dialog id="confirmacionDemo" aria-labelledby="tituloConfirmacion">
+<h2 id="tituloConfirmacion">Confirmar acción </h2>
+<p id="textoConfirmacion">
+</p>
+<p id="errorConfirmacion" class="mensaje oculto" role="alert">
+</p>
+<div class="acciones">
+<button id="aceptarConfirmacion" class="boton" type="button">Confirmar</button>
+<button class="boton secundario" type="button" data-cerrar="confirmacionDemo">Cancelar</button>
+</div>
+</dialog>
+<script src="js/servicios/imagenes.js" defer></script>
+<script src="js/servicios/mostrar-imagen.js" defer></script>
+<script src="js/modelo/modelo.js" defer></script>
+<script src="js/vista/vista.js" defer></script>
+<script src="js/controlador/controlador.js" defer></script>
+<script src="js/app.js" defer></script>
+<script src="js/paginas/admin-inventario.js" defer>
+</script>
+</body>
+</html>

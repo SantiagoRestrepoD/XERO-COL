@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' https://open.er-api.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="XERO: catálogo de relojes y gestión de inventario local.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/fuentes.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <title>XERO | Ventas</title>
+</head>
+<body class="acceso-pendiente" data-pagina="admin-ventas" data-perfil="administrador">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="aviso-demo">XERO</div>
+<header class="cabecera">
+<a class="marca" href="index.html">
+<span class="logo" aria-hidden="true">X</span>
+<span class="nombre-marca">XERO <small>Studio</small>
+</span>
+</a>
+<nav class="menu-global" aria-label="Navegación principal">
+<a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="index.html#contacto">Contacto</a><a class="boton" href="login.html">Iniciar sesión</a>
+<span id="perfilDemo"></span><button id="salirDemo" type="button" hidden>Cerrar sesión</button>
+</nav>
+<button id="cambiarTema" class="boton-tema" type="button" aria-pressed="false">Modo oscuro</button>
+</header>
+<div class="estructura administracion">
+<aside class="lateral">
+<p class="etiqueta">ADMINISTRACIÓN</p>
+<button id="alternarMenu" type="button" aria-controls="menuLateral" aria-expanded="false">Menú</button>
+<nav id="menuLateral" aria-label="Módulos administrativos">
+<a href="admin.html">Inicio</a>
+<a href="admin-productos.html">Productos</a>
+<a href="admin-inventario.html">Inventario</a>
+<a href="admin-compras.html">Compras</a>
+<a href="admin-ventas.html" aria-current="page" class="seleccionado">Ventas</a>
+<a href="admin-clientes.html">Clientes</a>
+<a href="admin-empleados.html">Empleados</a>
+</nav>
+<p class="nota-lateral">Los cambios se guardan en este navegador.</p>
+<button id="restablecerDemo" type="button" class="boton secundario">Restablecer datos</button>
+</aside>
+<main id="contenido" tabindex="-1" hidden>
+<div class="titulo-seccion">
+<div>
+<p class="etiqueta">XERO</p>
+<h1 id="tituloPagina">Ventas</h1>
+<p>Borradores y detalles. Los registros se guardan en este navegador.</p>
+</div>
+</div>
+<p id="mensajePagina" class="mensaje oculto" role="status" aria-live="polite">
+</p>
+<div class="acciones" role="group" aria-label="Opciones de ventas">
+<button id="registrarVenta" type="button" class="boton" aria-controls="editorDocumento" aria-pressed="true">Registrar venta</button>
+<button id="verVentasPasadas" type="button" class="boton secundario" aria-controls="listaVentas" aria-pressed="false">Ver ventas pasadas</button>
+</div>
+<section id="editorDocumento" class="seccion" tabindex="-1" aria-labelledby="tituloEditorVenta">
+<div class="cabecera-dialogo">
+<h2 id="tituloEditorVenta">Registrar venta</h2>
+<button id="cerrarEditor" type="button" class="boton secundario">Cerrar editor</button>
+</div>
+<button id="nuevoDocumento" type="button" class="boton secundario">Nuevo borrador</button>
+<p id="estadoDocumento" role="status">
+</p>
+<form class="formulario" id="formDocumento">
+<fieldset>
+<legend>Cabecera</legend>
+<label for="clienteDocumento">Perfil de cliente *<select id="clienteDocumento" name="clienteId" required>
+<option value="">Selecciona un cliente</option>
+</select></label>
+<p>Las ventas anteriores sin perfil conservan sus datos y no se vinculan automáticamente.</p>
+<label for="contactoDocumento">Cliente *<input id="contactoDocumento" name="contacto" type="text" required minlength="2" maxlength="150">
+</label>
+<label for="notasDocumento">Notas <textarea id="notasDocumento" name="observaciones" maxlength="1000">
+</textarea>
+</label>
+<button class="boton" id="guardarDocumento" type="submit">Guardar borrador</button>
+</fieldset>
+</form>
+<form class="formulario" id="formDetalle">
+<fieldset>
+<legend>Línea de detalle</legend>
+<div class="formulario formulario__campos">
+<label for="productoLinea">Producto *<select id="productoLinea" name="productoId">
+<option value="">Selecciona</option>
+</select>
+</label>
+<label for="cantidadLinea">Cantidad *<input id="cantidadLinea" name="cantidad" type="number" required min="1" max="500" step="1">
+</label>
+<label for="precioLinea">Precio unitario en COP *<input id="precioLinea" name="precio" type="text" required inputmode="decimal">
+</label>
+</div>
+<div class="acciones">
+<button class="boton" id="guardarDetalle" type="submit">Guardar detalle</button>
+<button class="boton secundario" id="nuevaLinea" type="button">Nueva línea</button>
+</div>
+</fieldset>
+</form>
+<div class="tabla" tabindex="0" role="region" aria-label="Detalle del documento ">
+<table class="tabla__contenido">
+<caption>Detalle del documento </caption>
+<thead>
+<tr class="tabla__fila">
+<th class="tabla__encabezado" scope="col">Producto</th>
+<th class="tabla__encabezado" scope="col">Cantidad</th>
+<th class="tabla__encabezado" scope="col">Unitario</th>
+<th class="tabla__encabezado" scope="col">Subtotal</th>
+<th class="tabla__encabezado" scope="col">Acciones</th>
+</tr>
+</thead>
+<tbody id="tablaDetalles">
+</tbody>
+</table>
+</div>
+<div class="acciones">
+<button id="confirmarDocumento" class="boton" type="button">Confirmar aplicación</button>
+<button id="anularDocumento" class="boton secundario" type="button">Anular aplicación</button>
+</div>
+<label for="motivoAnulacion">Motivo de anulación<input id="motivoAnulacion" name="motivoAnulacion" type="text" minlength="3" maxlength="500">
+</label>
+<p>Solo confirmar o anular un documento confirmado cambia existencias. Repetir la acción no vuelve a aplicar su efecto.</p>
+</section>
+<section id="listaVentas" class="seccion" aria-labelledby="tituloListaVentas" hidden>
+<h2 id="tituloListaVentas">Ventas pasadas</h2>
+<div class="formulario formulario__campos">
+<label for="buscarDocumentos">Buscar cliente, producto, fecha o referencia<input id="buscarDocumentos" name="buscarDocumentos" type="search" >
+</label>
+<label for="estadoDocumentos">Estado<select id="estadoDocumentos" name="estadoDocumentos">
+<option value="todos">Todos</option>
+<option value="borrador">Borrador</option>
+<option value="confirmado">Confirmado</option>
+<option value="anulado">Anulado</option>
+</select>
+</label>
+</div>
+<div class="tabla" tabindex="0" role="region" aria-label="Ventas ">
+<table class="tabla__contenido">
+<caption>Ventas </caption>
+<thead>
+<tr class="tabla__fila">
+<th class="tabla__encabezado" scope="col">Fecha</th>
+<th class="tabla__encabezado" scope="col">Cliente</th>
+<th class="tabla__encabezado" scope="col">Estado</th>
+<th class="tabla__encabezado" scope="col">Total</th>
+<th class="tabla__encabezado" scope="col">Acciones</th>
+</tr>
+</thead>
+<tbody id="tablaDocumentos">
+</tbody>
+</table>
+</div>
+</section>
+</main>
+</div>
+<footer class="pie"><div><a class="marca-pie" href="index.html">XERO Studio</a><address>Dirección: Calle 10 # 20-30, Ciudad Ejemplo, Colombia.</address></div>
+<nav aria-label="Canales de contacto"><a href="https://www.instagram.com/xero.col/" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://wa.me/573156776744" target="_blank" rel="noopener noreferrer">WhatsApp: +57 315 677 6744</a></nav>
+<p>© 2026 · Sin pagos, envíos ni cuentas reales.</p></footer>
+<dialog id="confirmacionDemo" aria-labelledby="tituloConfirmacion">
+<h2 id="tituloConfirmacion">Confirmar acción </h2>
+<p id="textoConfirmacion">
+</p>
+<p id="errorConfirmacion" class="mensaje oculto" role="alert">
+</p>
+<div class="acciones">
+<button id="aceptarConfirmacion" class="boton" type="button">Confirmar</button>
+<button class="boton secundario" type="button" data-cerrar="confirmacionDemo">Cancelar</button>
+</div>
+</dialog>
+<script src="js/servicios/imagenes.js" defer></script>
+<script src="js/servicios/mostrar-imagen.js" defer></script>
+<script src="js/modelo/modelo.js" defer></script>
+<script src="js/vista/vista.js" defer></script>
+<script src="js/controlador/controlador.js" defer></script>
+<script src="js/app.js" defer></script>
+<script src="js/paginas/admin-ventas.js" defer>
+</script>
+</body>
+</html>

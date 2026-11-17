@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' https://open.er-api.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="XERO: catálogo de relojes.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/fuentes.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <title>XERO | Inicio</title>
+</head>
+<body data-pagina="index" class="menu-abierto">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="aviso-demo">XERO</div>
+<header class="cabecera">
+<a class="marca" href="index.html">
+<span class="logo" aria-hidden="true">X</span>
+<span class="nombre-marca">XERO <small>Studio</small>
+</span>
+</a>
+<nav class="menu-global" aria-label="Navegación principal">
+<a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="index.html#contacto">Contacto</a><a class="boton" href="login.html">Iniciar sesión</a>
+<span id="perfilDemo"></span><button id="salirDemo" type="button" hidden>Cerrar sesión</button>
+</nav>
+<button id="cambiarTema" class="boton-tema" type="button" aria-pressed="false">Modo oscuro</button>
+</header>
+<div class="estructura">
+<aside class="lateral">
+<p class="etiqueta">EXPLORA XERO</p>
+<button id="alternarMenu" type="button" aria-controls="menuLateral" aria-expanded="true">Menú</button>
+<nav id="menuLateral" aria-label="Secciones del inicio">
+<a href="#home">01 · Inicio</a>
+<a href="#catalogo">02 · Catálogo</a>
+<a href="#garantias">03 · Garantías</a>
+<a href="#promociones">04 · Promociones</a>
+<a href="#categorias">05 · Categorías</a>
+<a href="#indicadores">06 · Indicadores</a>
+<a href="#contacto">07 · Contacto</a>
+</nav>
+<p id="etiquetaFiltros" class="etiqueta">FILTRAR CATÁLOGO</p>
+<div id="filtros" role="group" aria-labelledby="etiquetaFiltros"></div>
+<p>Resumen del catálogo.</p>
+<dl id="resumenCatalogo"></dl>
+</aside>
+<main id="contenido" tabindex="-1">
+<p id="mensajePagina" class="mensaje oculto" role="status" aria-live="polite">
+</p>
+<section id="home" class="hero" aria-labelledby="tituloInicio">
+<img src="img/hero.webp" alt="Reloj analógico de esfera clara y correa negra sobre fondo burdeos" width="1400" height="840">
+<div class="hero-texto">
+<p class="etiqueta">RELOJES &amp; ACCESORIOS / COLECCIÓN</p>
+<h1 id="tituloInicio">El tiempo<br>también se lleva.</h1>
+<p>Encuentra un estilo que hable de ti.<br>
+<em>Diseño atemporal, curiosidad sin límites.</em>
+</p>
+<a class="boton boton-claro" href="#catalogo">Explorar catálogo</a>
+</div>
+<span class="pie-imagen">Ilustración generada · no es un producto real</span>
+</section>
+<section id="catalogo" class="seccion">
+<h2>Tu próximo favorito.</h2>
+<p>Explora nuestros relojes, consulta sus fichas e inicia sesión para acceder a tu espacio.</p>
+<label for="buscar">Buscar por nombre o identificador</label>
+<input id="buscar" type="search" placeholder="Ejemplo: Horizonte">
+<p id="estadoTasaInicio" role="status" aria-live="polite">Cargando tasa de cambio...</p>
+<p><a href="https://www.exchangerate-api.com" target="_blank" rel="noopener noreferrer">Rates By Exchange Rate API</a></p>
+<p id="contadorResultados" role="status" aria-live="polite"></p>
+<p id="sinResultados" class="mensaje oculto">No hay coincidencias. Cambia la búsqueda o la categoría.</p>
+<div id="tarjetasInicio" class="tarjetas"></div>
+<a class="boton secundario" href="catalogo.html">Ver todo el catálogo</a>
+</section>
+<section id="garantias" class="seccion seccion-suave">
+<h2>Garantías de ejemplo</h2>
+<div class="tabla" role="region" tabindex="0" aria-label="Garantías">
+<table class="tabla__contenido">
+<caption>Ejemplo de garantías</caption>
+<thead><tr class="tabla__fila"><th class="tabla__encabezado" scope="col">Característica</th><th class="tabla__encabezado" scope="col">Básico</th><th class="tabla__encabezado" scope="col">Pro</th><th class="tabla__encabezado" scope="col">Premium</th></tr></thead>
+<tbody>
+<tr class="tabla__fila"><th class="tabla__encabezado" scope="row">Cobertura de ejemplo</th><td class="tabla__celda">6 meses</td><td class="tabla__celda">12 meses</td><td class="tabla__celda">24 meses</td></tr>
+<tr class="tabla__fila"><th class="tabla__encabezado" scope="row">Revisiones de ejemplo</th><td class="tabla__celda">1 revisión</td><td class="tabla__celda">2 revisiones</td><td class="tabla__celda">4 revisiones</td></tr>
+<tr class="tabla__fila"><th class="tabla__encabezado" scope="row">Accesorio</th><td class="tabla__celda">Estuche sencillo</td><td class="tabla__celda">Estuche y paño</td><td class="tabla__celda">Estuche, paño y correa</td></tr>
+<tr class="tabla__fila"><th class="tabla__encabezado" scope="row">Precio en COP</th><td class="tabla__celda">$ 10.000</td><td class="tabla__celda">$ 25.000</td><td class="tabla__celda">$ 40.000</td></tr>
+</tbody>
+<tfoot>
+<tr class="tabla__fila">
+<td class="tabla__celda" colspan="4">Los precios de ejemplo incluyen IVA. No constituyen una oferta comercial.</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</section>
+<section id="promociones" class="seccion">
+<h2>Referencias destacadas</h2>
+<p>Las cifras de ventas iniciales son datos de ejemplo.</p>
+<ol id="promocionesDemo">
+</ol>
+</section>
+<section id="categorias" class="seccion seccion-suave">
+<h2>Tres formas de llevar el tiempo</h2>
+<ul>
+<li>Clásicos</li>
+<li>Deportivos</li>
+<li>Urbanos</li>
+</ul>
+</section>
+<section id="indicadores" class="seccion">
+<h2>Indicadores</h2>
+<label for="stockInicio">Existencias de un producto de ejemplo</label>
+<progress id="stockInicio" value="0" max="500">0</progress>
+<p id="textoStock">
+</p>
+<label for="calificacionDemo">Calificación de ejemplo</label>
+<meter id="calificacionDemo" min="0" max="5" value="4.5">4,5 de 5</meter>
+<p>Calificación: 4,5 / 5.</p>
+</section>
+<section id="contacto" class="seccion seccion-suave">
+<h2>Contacto y registro </h2>
+<p>Este formulario no crea pedidos, no procesa pagos ni envía datos.</p>
+<form class="formulario" id="formContacto">
+<fieldset><legend>Datos para practicar</legend>
+<div class="formulario formulario__campos">
+<label for="nombreContacto">Nombre *<input id="nombreContacto" name="nombre" type="text" required minlength="2" maxlength="100" pattern=".*\S.*"></label>
+<label for="correoContacto">Correo de ejemplo *<input id="correoContacto" name="correo" type="email" required maxlength="254" placeholder="persona@example.com"></label>
+<label for="telefonoContacto">Teléfono *<input id="telefonoContacto" name="telefono" type="tel" required minlength="5" maxlength="30" pattern="[+0-9\(\).\-]{5,30}"></label>
+<label for="pagoContacto">Método de pago (sin procesar) *<select id="pagoContacto" name="pago" required><option value="" selected disabled>Selecciona un método</option><option value="transferencia">Transferencia (sin procesar)</option><option value="efectivo">Efectivo (sin procesar)</option></select></label>
+</div>
+<label for="instruccionesContacto">Instrucciones adicionales de envío *<textarea id="instruccionesContacto" name="instrucciones" required minlength="3" maxlength="500"></textarea></label>
+<p id="errorContacto" data-error class="mensaje oculto" role="alert"></p>
+<button class="boton" type="submit">Validar aplicación</button>
+</fieldset></form>
+<p id="confirmacionContacto" class="mensaje oculto" role="status" aria-live="polite"></p>
+</section>
+</main>
+</div>
+<footer class="pie"><div><a class="marca-pie" href="index.html">XERO Studio</a><address>Dirección: Calle 10 # 20-30, Ciudad Ejemplo, Colombia.</address></div>
+<nav aria-label="Canales de contacto"><a href="https://www.instagram.com/xero.col/" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://wa.me/573156776744" target="_blank" rel="noopener noreferrer">WhatsApp: +57 315 677 6744</a></nav>
+<p>© 2026 · Sin pagos, envíos ni cuentas reales.</p></footer>
+<dialog id="confirmacionDemo" aria-labelledby="tituloConfirmacion">
+<h2 id="tituloConfirmacion">Confirmar acción </h2>
+<p id="textoConfirmacion">
+</p>
+<p id="errorConfirmacion" class="mensaje oculto" role="alert">
+</p>
+<div class="acciones">
+<button id="aceptarConfirmacion" class="boton" type="button">Confirmar</button>
+<button class="boton secundario" type="button" data-cerrar="confirmacionDemo">Cancelar</button>
+</div>
+</dialog>
+<script src="js/servicios/imagenes.js" defer></script>
+<script src="js/servicios/mostrar-imagen.js" defer></script>
+<script src="js/modelo/modelo.js" defer></script>
+<script src="js/vista/vista.js" defer></script>
+<script src="js/controlador/controlador.js" defer></script>
+<script src="js/app.js" defer></script>
+<script src="js/servicios/api.js" defer></script>
+<script src="js/servicios/precios-usd.js" defer></script>
+<script src="js/paginas/index.js" defer>
+</script>
+</body>
+</html>

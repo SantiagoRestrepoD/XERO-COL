@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; connect-src 'self' https://open.er-api.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="XERO: catálogo de relojes y gestión de inventario local.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/fuentes.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <title>XERO | Panel de empleado</title>
+</head>
+<body class="acceso-pendiente" data-pagina="empleado" data-perfil="empleado">
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<div class="aviso-demo">XERO</div>
+<header class="cabecera">
+<a class="marca" href="index.html">
+<span class="logo" aria-hidden="true">X</span>
+<span class="nombre-marca">XERO <small>Studio</small>
+</span>
+</a>
+<nav class="menu-global" aria-label="Navegación principal">
+<a href="index.html">Inicio</a><a href="catalogo.html">Catálogo</a><a href="index.html#contacto">Contacto</a><a class="boton" href="login.html">Iniciar sesión</a>
+<span id="perfilDemo"></span><button id="salirDemo" type="button" hidden>Cerrar sesión</button>
+</nav>
+<button id="cambiarTema" class="boton-tema" type="button" aria-pressed="false">Modo oscuro</button>
+</header>
+<div class="estructura">
+<aside class="lateral">
+<p class="etiqueta">EXPLORA XERO</p>
+<button id="alternarMenu" type="button" aria-controls="menuLateral" aria-expanded="false">Menú</button>
+<nav id="menuLateral" aria-label="Secciones de empleado">
+<a href="catalogo.html">Catálogo</a>
+<a href="empleado.html#inventarioEmpleado">Inventario</a>
+<a href="empleado.html#ventasEmpleado">Ventas</a>
+<a href="empleado.html#clientesEmpleado">Clientes</a>
+</nav>
+<p class="nota-lateral">Los cambios se guardan en este navegador.</p>
+</aside>
+<main id="contenido" tabindex="-1" hidden>
+<div class="titulo-seccion">
+<div>
+<p class="etiqueta">XERO</p>
+<h1 id="tituloPagina">Panel de empleado</h1>
+<p>Consulta inventario y clientes, y registra ventas.</p>
+</div>
+</div>
+<p id="mensajePagina" class="mensaje oculto" role="status" aria-live="polite">
+</p>
+<section id="inventarioEmpleado" class="seccion" aria-labelledby="tituloInventarioEmpleado">
+<h2 id="tituloInventarioEmpleado">Inventario</h2>
+<div class="formulario formulario__campos">
+<label for="buscarInventario">Buscar producto<input id="buscarInventario" name="buscarInventario" type="search" >
+</label>
+<label for="estadoInventario">Estado<select id="estadoInventario" name="estadoInventario">
+<option value="todos">Todos</option>
+<option value="activos">Activos</option>
+<option value="inactivos">Inactivos</option>
+</select>
+</label>
+</div>
+<label for="categoriaInventario">Categoría<select id="categoriaInventario"><option value="">Todas las categorías</option></select></label>
+<p id="contadorInventario" role="status">
+</p>
+<div class="tabla" tabindex="0" role="region" aria-label="Consulta sin controles de edición">
+<table class="tabla__contenido">
+<caption>Consulta sin controles de edición</caption>
+<thead>
+<tr class="tabla__fila">
+<th class="tabla__encabezado" scope="col">Nombre</th>
+<th class="tabla__encabezado" scope="col">Categoría</th>
+<th class="tabla__encabezado" scope="col">Precio</th>
+<th class="tabla__encabezado" scope="col">Cantidad</th>
+<th class="tabla__encabezado" scope="col">Estado</th>
+<th class="tabla__encabezado" scope="col">Ficha</th>
+</tr>
+</thead>
+<tbody id="tablaInventario">
+</tbody>
+</table>
+</div>
+</section>
+<section id="ventasEmpleado" class="seccion" aria-labelledby="tituloVentasEmpleado">
+<h2 id="tituloVentasEmpleado">Ventas</h2>
+<section aria-labelledby="tituloRegistrarVentaEmpleado">
+<h3 id="tituloRegistrarVentaEmpleado">Registrar una venta</h3>
+<p>Elige un cliente y agrega productos. El precio se toma del catálogo.</p>
+<form class="formulario" id="formVentaEmpleado">
+<label for="clienteVentaEmpleado">Cliente *<select id="clienteVentaEmpleado" name="clienteId" required>
+<option value="">Selecciona un cliente</option>
+</select></label>
+<section id="historialClienteVenta" aria-labelledby="tituloHistorialClienteVenta" hidden>
+<h4 id="tituloHistorialClienteVenta">Compras anteriores del cliente</h4>
+<p id="sinComprasClienteVenta" role="status" hidden></p>
+<div id="tablaHistorialClienteVenta" class="tabla" tabindex="0" role="region" aria-label="Relojes comprados por el cliente" hidden>
+<table class="tabla__contenido"><caption>Relojes comprados por el cliente</caption><thead><tr class="tabla__fila">
+<th class="tabla__encabezado" scope="col">Nombre</th><th class="tabla__encabezado" scope="col">Fecha</th><th class="tabla__encabezado" scope="col">Precio</th>
+</tr></thead><tbody id="relojesClienteVenta"></tbody></table>
+</div>
+</section>
+<p id="errorVentaEmpleado" data-error class="mensaje oculto" role="alert"></p>
+<button class="boton" type="submit">Crear venta</button>
+</form>
+<p id="estadoVentaEmpleado" role="status" aria-live="polite">Crea una venta para agregar productos.</p>
+<form class="formulario" id="formDetalleEmpleado">
+<fieldset id="camposDetalleEmpleado" disabled>
+<legend>Agregar producto</legend>
+<label for="productoVentaEmpleado">Producto *<select id="productoVentaEmpleado" name="productoId" required>
+<option value="">Selecciona un producto</option>
+</select></label>
+<p id="precioVentaEmpleado" role="status">Precio unitario: selecciona un producto.</p>
+<label for="cantidadVentaEmpleado">Cantidad *<input id="cantidadVentaEmpleado" name="cantidad" type="number" required min="1" max="500" step="1"></label>
+<p id="errorDetalleEmpleado" data-error class="mensaje oculto" role="alert"></p>
+<button id="agregarProductoEmpleado" class="boton" type="submit">Agregar producto</button>
+</fieldset>
+</form>
+<div class="tabla" tabindex="0" role="region" aria-label="Productos de la venta">
+<table class="tabla__contenido"><caption>Productos de la venta</caption><thead><tr class="tabla__fila">
+<th class="tabla__encabezado" scope="col">Producto</th><th class="tabla__encabezado" scope="col">Cantidad</th><th class="tabla__encabezado" scope="col">Precio unitario</th><th class="tabla__encabezado" scope="col">Subtotal</th>
+</tr></thead><tbody id="detalleVentaEmpleado"></tbody></table>
+</div>
+<button id="confirmarVentaEmpleado" type="button" class="boton" disabled>Confirmar venta</button>
+</section>
+<section aria-labelledby="tituloMisVentasEmpleado">
+<h3 id="tituloMisVentasEmpleado">Mis ventas</h3>
+<div class="tabla" tabindex="0" role="region" aria-label="Mis ventas">
+<table class="tabla__contenido"><caption>Mis ventas</caption><thead><tr class="tabla__fila">
+<th class="tabla__encabezado" scope="col">Fecha</th><th class="tabla__encabezado" scope="col">Cliente</th><th class="tabla__encabezado" scope="col">Total</th><th class="tabla__encabezado" scope="col">Estado</th><th class="tabla__encabezado" scope="col">Acciones</th>
+</tr></thead><tbody id="ventasPropiasEmpleado"></tbody></table>
+</div>
+</section>
+</section>
+<section id="clientesEmpleado" class="seccion" aria-labelledby="tituloClientesEmpleado">
+<h2 id="tituloClientesEmpleado">Clientes</h2>
+<p>Consulta de perfiles en modo lectura.</p>
+<div class="tabla" tabindex="0" role="region" aria-label="Clientes en modo lectura">
+<table class="tabla__contenido"><caption>Clientes</caption><thead><tr class="tabla__fila"><th class="tabla__encabezado" scope="col">Nombre</th><th class="tabla__encabezado" scope="col">Correo</th><th class="tabla__encabezado" scope="col">Estado</th></tr></thead>
+<tbody id="clientesLecturaEmpleado"></tbody></table>
+</div>
+</section>
+</main>
+</div>
+<footer class="pie"><div><a class="marca-pie" href="index.html">XERO Studio</a><address>Dirección: Calle 10 # 20-30, Ciudad Ejemplo, Colombia.</address></div>
+<nav aria-label="Canales de contacto"><a href="https://www.instagram.com/xero.col/" target="_blank" rel="noopener noreferrer">Instagram</a> <a href="https://wa.me/573156776744" target="_blank" rel="noopener noreferrer">WhatsApp: +57 315 677 6744</a></nav>
+<p>© 2026 · Sin pagos, envíos ni cuentas reales.</p></footer>
+<dialog id="confirmacionDemo" aria-labelledby="tituloConfirmacion">
+<h2 id="tituloConfirmacion">Confirmar acción </h2>
+<p id="textoConfirmacion">
+</p>
+<p id="errorConfirmacion" class="mensaje oculto" role="alert">
+</p>
+<div class="acciones">
+<button id="aceptarConfirmacion" class="boton" type="button">Confirmar</button>
+<button class="boton secundario" type="button" data-cerrar="confirmacionDemo">Cancelar</button>
+</div>
+</dialog>
+<script src="js/servicios/imagenes.js" defer></script>
+<script src="js/servicios/mostrar-imagen.js" defer></script>
+<script src="js/modelo/modelo.js" defer></script>
+<script src="js/vista/vista.js" defer></script>
+<script src="js/controlador/controlador.js" defer></script>
+<script src="js/app.js" defer></script>
+<script src="js/paginas/empleado.js" defer>
+</script>
+</body>
+</html>

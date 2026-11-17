@@ -1,0 +1,8 @@
+Trabajo final HP3 · Equipo 7 · Santiago Restrepo Durango
+Sistema: XERO-COL (versión v19)
+Contenido de esta carpeta:
+- HP3_ManualTecnico_Equipo7.pdf (manual técnico)
+- HP3_ManualUsuario_Equipo7.pdf (manual de usuario)
+El código fuente está en la carpeta anterior del mismo nombre, sin la carpeta Entrega_HP3.
+Enlace al repositorio: [pendiente]
+Enlace de la aplicación publicada: [pendiente]
