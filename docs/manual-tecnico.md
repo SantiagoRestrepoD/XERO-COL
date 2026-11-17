@@ -50,7 +50,7 @@ XERO_v19_inicio_publico/
 │   ├── controlador/       Coordinación y eventos
 │   ├── paginas/           Inicio de cada pantalla
 │   └── servicios/         Tasa, imágenes y precios en USD
-├── docs/                  Manuales, normas y documentos Word
+├── docs/                  Manuales y normas de la entrega
 └── tests/                 Pruebas con Node.js
 ```
 
@@ -298,6 +298,14 @@ Cada respuesta se comprobó antes de usarse.
 ### 12.2 Alcance y limitaciones
 
 Cada integrante debe poder explicar y modificar las partes del código que la IA ayudó a escribir.
+
+### 12.3 Preguntas para completar la información
+
+- ¿Qué versión o modelo de ChatGPT se usó?
+- ¿En qué fechas aproximadas se utilizó cada herramienta?
+- ¿Qué ejemplos concretos de uso de cada herramienta corresponden al proyecto?
+
+Según lo indicado por el autor, se usó Codex con GPT-6.1 Terra y Claude con Haiku 5.5.
 
 ## 13. Aportes del equipo
 

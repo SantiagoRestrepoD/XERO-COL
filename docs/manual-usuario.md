@@ -11,8 +11,6 @@ XERO-COL es una tienda gestora de relojes para una demostración académica. Per
 
 Usa únicamente información y credenciales ficticias; no introduzcas contraseñas personales.
 
-[CAPTURA: 1 - formulario de inicio de sesión con las cuentas de demostración]
-
 ![Inicio de sesión y cuentas públicas de demostración.](capturas/captura-01-01.png)
 
 ## Cliente
@@ -34,8 +32,6 @@ El registro crea un perfil nuevo y una cuenta de cliente vinculada a él. Las cu
 2. Utiliza la búsqueda y los filtros para encontrar un reloj.
 3. Pulsa **Ver ficha** para consultar sus datos. En Inicio y Catálogo se muestra el valor aproximado en USD cuando llega la tasa; el precio en pesos colombianos sigue visible.
 
-[CAPTURA: 2 - catálogo con filtros y precio aproximado en USD]
-
 ![Catálogo con filtros, tasa consultada y precios aproximados en USD.](capturas/captura-02-01.png)
 
 ### Consultar datos y compras
@@ -44,8 +40,6 @@ El registro crea un perfil nuevo y una cuenta de cliente vinculada a él. Las cu
 2. En **Datos personales**, revisa la información del perfil vinculado. Un dato ausente se presenta como **No indicado**.
 3. En **Compras**, consulta las ventas vinculadas a ese perfil y su estado. Las ventas anteriores sin vínculo no aparecen en este historial.
 4. Si aparece el aviso de cuenta sin vincular, pide al administrador que seleccione el perfil correspondiente.
-
-[CAPTURA: 3 - datos personales y compras del cliente]
 
 ![Datos personales del perfil de cliente de demostración.](capturas/captura-03-01.png)
 
@@ -61,8 +55,6 @@ El empleado puede consultar productos y existencias, ver nombre, correo y estado
 2. En **Inventario**, busca el producto o utiliza los filtros de estado y categoría. Usa **Ver ficha** para consultar el reloj.
 3. En **Clientes**, consulta los nombres, correos y estados; la lista es de solo lectura.
 
-[CAPTURA: 4 - consulta de inventario y clientes del empleado]
-
 ![Inventario del empleado en modo consulta.](capturas/captura-04-01.png)
 
 ![Clientes visibles para el empleado en modo lectura.](capturas/captura-04-02.png)
@@ -73,8 +65,6 @@ El empleado puede consultar productos y existencias, ver nombre, correo y estado
 2. En **Agregar producto**, selecciona el reloj, indica la cantidad y pulsa **Agregar producto**. El precio se toma del catálogo.
 3. Repite el paso para añadir productos. Para terminar, pulsa **Confirmar venta** y acepta la confirmación.
 4. Para continuar después un borrador propio, pulsa **Continuar** en la fila correspondiente de **Mis ventas**. Las ventas confirmadas son de solo lectura.
-
-[CAPTURA: 5 - creación de venta y tabla Mis ventas del empleado]
 
 ![Cliente elegido y sus compras anteriores.](capturas/captura-05-01.png)
 
@@ -92,8 +82,6 @@ El administrador puede consultar todos los módulos, crear y modificar productos
 2. En la tabla usa **Editar**, las acciones de estado o eliminación cuando corresponda y confirma si la aplicación lo solicita. Las cantidades se ajustan desde **Inventario**.
 3. Usa búsqueda y filtros; pulsa un encabezado para cambiar el orden y elige el tamaño de página. **Exportar CSV** descarga los productos coincidentes con los filtros, en el orden actual.
 
-[CAPTURA: 6 - formulario y tabla de productos de administración]
-
 ![Tabla de productos, búsqueda, filtros y paginación.](capturas/captura-06-01.png)
 
 ![Formulario de un producto nuevo.](capturas/captura-06-02.png)
@@ -103,8 +91,6 @@ El administrador puede consultar todos los módulos, crear y modificar productos
 1. Abre **Inventario** y pulsa **Nuevo ajuste**.
 2. Selecciona un producto, indica una variación entera positiva o negativa distinta de cero y escribe el motivo.
 3. Pulsa **Registrar ajuste**. Consulta la tabla **Historial** para revisar los movimientos.
-
-[CAPTURA: 7 - ajuste de inventario e historial]
 
 ![Formulario de ajuste con datos de demostración.](capturas/captura-07-01.png)
 
@@ -118,8 +104,6 @@ El administrador puede consultar todos los módulos, crear y modificar productos
 4. Pulsa **Confirmar aplicación** y acepta la confirmación. Para anular un documento, escribe el motivo, pulsa **Anular aplicación** y confirma; las validaciones del inventario pueden impedir la reversión.
 5. En **Ventas**, pulsa **Ver ventas pasadas** para buscar por cliente, producto, fecha o referencia y filtrar por estado. En **Compras**, utiliza la búsqueda y el filtro de estado para consultar los documentos.
 
-[CAPTURA: 8 - editor de compra o venta con líneas de detalle]
-
 ![Cabecera del borrador de venta para un cliente de ejemplo.](capturas/captura-08-01.png)
 
 ![Línea de venta antes de guardarla.](capturas/captura-08-02.png)
@@ -132,8 +116,6 @@ El administrador puede consultar todos los módulos, crear y modificar productos
 2. Para modificar o cambiar el estado de un perfil, utiliza las acciones de su fila.
 3. En **Vincular cuenta de cliente**, selecciona la cuenta de acceso y el perfil y pulsa **Guardar vínculo**. Las cuentas no asignadas se identifican como **Sin vincular**; también se puede seleccionar esa opción para retirar un vínculo.
 
-[CAPTURA: 9 - perfil de cliente y selector para vincular cuenta]
-
 ![Tabla de perfiles de clientes con datos ficticios.](capturas/captura-09-01.png)
 
 ![Selector de cuenta y perfil de cliente vinculado.](capturas/captura-09-02.png)
@@ -143,8 +125,6 @@ El administrador puede consultar todos los módulos, crear y modificar productos
 1. Abre **Empleados**, pulsa **Nuevo perfil**, completa los datos y guarda.
 2. Usa las acciones de la tabla para editar o cambiar el estado del perfil. Las acciones de cuenta permiten crear o gestionar por separado el acceso del empleado.
 
-[CAPTURA: 10 - tabla de empleados y gestión de acceso]
-
 ![Tabla del perfil de empleado de demostración.](capturas/captura-10-01.png)
 
 ![Formulario para crear el acceso del empleado, sin guardar una cuenta.](capturas/captura-10-02.png)
@@ -152,8 +132,6 @@ El administrador puede consultar todos los módulos, crear y modificar productos
 ### Restablecer la demostración
 
 En una página administrativa, pulsa **Restablecer datos** y lee el mensaje antes de confirmar. El restablecimiento reemplaza los datos locales de la demostración y elimina los cambios guardados; el almacenamiento de imágenes también se intenta limpiar.
-
-[CAPTURA: 11 - confirmación para restablecer los datos de demostración]
 
 ![Aviso de confirmación de restablecimiento, sin confirmar la acción.](capturas/captura-11-01.png)
 

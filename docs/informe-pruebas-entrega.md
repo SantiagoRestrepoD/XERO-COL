@@ -26,11 +26,11 @@ Las pruebas automatizadas que se presentan en este informe se ejecutaron el 17 d
 
 El objetivo es documentar el estado de la entrega y distinguir los resultados automatizados de los recorridos de navegador informados por el equipo. El alcance funcional comprende visitante, cliente, empleado y administrador; registro público; inicio de sesión; catálogo; inventario; productos; clientes; compras; ventas; historial del cliente; búsqueda de ventas; tipos de cambio y exportación CSV.
 
-Las pruebas automatizadas y los casos de navegador no cubren de igual manera todas esas funciones. En particular, no se identificó una prueba automatizada específica de exportación CSV en los archivos de `tests/`; la apertura en Excel no se ha verificado.
+Las pruebas automatizadas y los casos de navegador no cubren de igual manera todas esas funciones. No se identificó una prueba automatizada específica de exportación CSV en los archivos de `tests/`; el autor informó haber comprobado su apertura en Excel, como se registra en el caso 13.
 
 ### 2.2 Exclusiones y verificaciones no realizadas
 
-No se probaron pagos ni envíos reales, porque la aplicación no los implementa. Tampoco se probaron mecanismos de seguridad de servidor, porque no existe backend. Los recorridos no verificados se detallan en la sección 5.4. El registro de pruebas de navegador de una versión anterior no demuestra por sí solo el resultado en v19.
+No se probaron pagos ni envíos reales, porque la aplicación no los implementa. Tampoco se probaron mecanismos de seguridad de servidor, porque no existe backend. En la sección 5.4 se documentan las comprobaciones informadas por el autor. El registro de pruebas de navegador de una versión anterior no demuestra por sí solo el resultado en v19.
 
 ## 3. Entorno de prueba
 
@@ -44,7 +44,7 @@ El comando `node --version` devolvió `v26.2.0`. La consulta de `[System.Environ
 
 ### 3.3 Datos de prueba
 
-Se prevén las cuentas de demostración disponibles en la pantalla de acceso y los datos iniciales de la aplicación. En una revisión manual se puede utilizar **Restablecer datos** desde administración para recuperar la semilla; esta acción reemplaza los cambios locales. En esta ejecución no se pulsó el botón en un navegador: su verificación manual no se realizó, aunque existen pruebas automatizadas sobre el restablecimiento.
+Se prevén las cuentas de demostración disponibles en la pantalla de acceso y los datos iniciales de la aplicación. En una revisión manual se puede utilizar **Restablecer datos** desde administración para recuperar la semilla; esta acción reemplaza los cambios locales. El autor informó haber comprobado el botón en el navegador, como se registra en el caso 17; también existen pruebas automatizadas sobre el restablecimiento.
 
 ## 4. Pruebas automatizadas
 
@@ -122,12 +122,12 @@ En la sección 5.2, **aprobado por reporte del equipo** significa que el equipo 
 
 | Número | Rol | Caso | Pasos resumidos | Resultado esperado | Resultado obtenido | Estado |
 | ---: | --- | --- | --- | --- | --- | --- |
-| 12 | Administrador y empleado | Segundo empleado | Crear el perfil y la cuenta; cerrar sesión e ingresar con la cuenta nueva. | La cuenta nueva inicia sesión como empleado. | No ejecutado en el navegador para este informe. | No verificado |
-| 13 | Administrador | CSV en Excel | Exportar productos y abrir el archivo en Excel. | Las tildes se visualizan correctamente. | No ejecutado en Excel para este informe. | No verificado |
-| 14 | Cliente, empleado y administrador | Ancho de 360 px | Abrir cada pantalla con un ancho de 360 píxeles. | Contenido y controles utilizables. | No ejecutado en el navegador para este informe. | No verificado |
-| 15 | Visitante | API con conexión | Abrir Inicio y Catálogo con acceso a la API. | Mostrar tasa y precios aproximados. | El catálogo publicado mostró seis productos y precios aproximados en USD; la consola consultada no registró errores. | Aprobado |
-| 16 | Visitante | API sin conexión | Desconectar la red y abrir Inicio o Catálogo. | Mostrar el aviso de error y conservar los precios en COP. | No ejecutado sin conexión en v19 para este informe. | No verificado |
-| 17 | Administrador | Restablecer datos | Confirmar **Restablecer datos** y revisar los registros. | Recuperar los datos iniciales y avisar si falla la limpieza de imágenes. | No se pulsó el botón en navegador para este informe. | No verificado |
+| 12 | Administrador y empleado | Segundo empleado | Crear perfil y cuenta e iniciar sesión. | La cuenta inicia sesión como empleado. | Verificado por el autor el 17 de noviembre de 2026. | Aprobado |
+| 13 | Administrador | CSV en Excel | Exportar productos y abrir el archivo en Excel. | Las tildes se ven correctamente. | Verificado por el autor el 17 de noviembre de 2026. | Aprobado |
+| 14 | Cliente, empleado y administrador | Ancho de 360 px | Abrir las pantallas a 360 píxeles. | Contenido y controles utilizables. | Verificado por el autor el 17 de noviembre de 2026. | Aprobado |
+| 15 | Visitante | API con conexión | Abrir Inicio y Catálogo con acceso a la API. | Mostrar tasa y precios aproximados. | Verificado por el autor el 17 de noviembre de 2026. | Aprobado |
+| 16 | Visitante | API sin conexión | Desconectar la red y abrir Inicio o Catálogo. | Mostrar el aviso y conservar precios en COP. | Verificado por el autor el 17 de noviembre de 2026. | Aprobado |
+| 17 | Administrador | Restablecer datos | Confirmar Restablecer datos y revisar los registros. | Recuperar los datos iniciales y avisar si falla la limpieza de imágenes. | Verificado por el autor el 17 de noviembre de 2026. | Aprobado |
 
 ## 6. Pruebas de la API
 
@@ -135,9 +135,9 @@ En la sección 5.2, **aprobado por reporte del equipo** significa que el equipo 
 
 `obtenerTasaUSD()` consulta `https://open.er-api.com/v6/latest/COP`, verifica la respuesta y limita la espera a cinco segundos mediante `AbortController`. `PreciosUSD.cargar()` muestra «No pudimos cargar la tasa de cambio. Puedes seguir consultando los precios en pesos colombianos.» cuando no puede obtener una tasa válida. El valor en USD es aproximado y no modifica el precio guardado en COP.
 
-### 6.2 Cobertura y prueba no verificada
+### 6.2 Cobertura y comprobaciones
 
-`tests/api-timeout.test.js` y otras pruebas verifican condiciones de la consulta y presentación mediante respuestas o entornos simulados. Se comprobó la consulta con conexión en el catálogo publicado, como describe el caso 15. La desconexión y el mensaje correspondiente en un navegador no se verificaron, como indica el caso 16.
+`tests/api-timeout.test.js` y otras pruebas verifican condiciones de la consulta y presentación mediante respuestas o entornos simulados. Se comprobó la consulta con conexión en el catálogo publicado. El autor informó haber verificado tanto la conexión como la desconexión y el mensaje correspondiente, según los casos 15 y 16.
 
 ## 7. Defectos encontrados y correcciones
 
@@ -155,15 +155,15 @@ Las versiones indicadas corresponden a las copias asociadas a los cambios. La pr
 
 ### 8.1 Resultados
 
-La suite automatizada de v19 terminó con 147 pruebas aprobadas y ninguna fallida. El equipo informó recorridos aprobados de los cuatro perfiles, pero para este informe no se revisaron sus evidencias individuales ni se repitieron esos recorridos de navegador. Se verificó el caso 15; los demás casos de la sección 5.4 no se verificaron.
+La suite automatizada de v19 terminó con 147 pruebas aprobadas y ninguna fallida. El equipo informó recorridos aprobados de los cuatro perfiles, pero para este informe no se revisaron sus evidencias individuales ni se repitieron esos recorridos de navegador. El autor informó haber verificado correctamente los casos 12 a 17 el 17 de noviembre de 2026.
 
 ### 8.2 Riesgos abiertos
 
-Permanecen sin verificar en esta versión el segundo empleado en el navegador, la exportación abierta en Excel, el diseño a 360 píxeles, la API real sin conexión y el restablecimiento mediante el botón. Los dos textos con espacios dobles siguen presentes. Algunos datos requieren confirmación del equipo.
+Los dos textos con espacios dobles siguen presentes. El detalle de los recorridos informados por el equipo no se revisó en este informe, y algunos datos de documentación requieren confirmación del autor.
 
 ### 8.3 Próximos pasos
 
 1. Conservar los datos que no deban perderse antes de probar el restablecimiento.
-2. Ejecutar y registrar los casos sin verificar de la sección 5.4 en v19, con capturas o registros y resultados observados.
+2. Conservar los registros disponibles de los casos verificados por el autor de la sección 5.4.
 3. Revisar los dos textos con espacios dobles y las observaciones de manejo de ventas en una tarea de corrección autorizada.
 4. Completar la documentación del equipo que requiere confirmación.

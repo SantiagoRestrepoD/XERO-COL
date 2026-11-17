@@ -1,5 +1,8 @@
 Trabajo final HP3 · Equipo 7 · Santiago Restrepo Durango
 Sistema: XERO-COL (versión v19)
+Documentos de entrega:
+- HP3_ManualTecnico_Equipo7.pdf
+- HP3_ManualUsuario_Equipo7.pdf
+- HP3_Informe_Pruebas_Equipo7.pdf
 Repositorio: https://github.com/SantiagoRestrepoD/XERO-COL
 Aplicación publicada: https://santiagorestrepod.github.io/XERO-COL/
-Los PDF del manual técnico y del manual de usuario se entregan en el aula virtual; no están en el repositorio.
