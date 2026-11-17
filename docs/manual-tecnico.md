@@ -299,16 +299,8 @@ Cada respuesta se comprobó antes de usarse.
 
 Cada integrante debe poder explicar y modificar las partes del código que la IA ayudó a escribir.
 
-### 12.3 Preguntas para completar la información
-
-- ¿Qué versión o modelo de ChatGPT se usó?
-- ¿En qué fechas aproximadas se utilizó cada herramienta?
-- ¿Qué ejemplos concretos de uso de cada herramienta corresponden al proyecto?
-
-Según lo indicado por el autor, se usó Codex con GPT-6.1 Terra y Claude con Haiku 5.5.
-
 ## 13. Aportes del equipo
 
 | Integrante | Aporte | Enlace al commit |
 | --- | --- | --- |
-| Santiago Restrepo Durango | No documentado | No documentado |
+| Santiago Restrepo Durango | Me encargué de la estructuración y creación del código, y de implementar los requerimientos del proyecto. La IA me ayudó a corregir errores. | No documentado |
